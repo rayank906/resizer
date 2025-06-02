@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.10)
+project(VideoResizer)
+find_package(OpenCV REQUIRED)
+add_executable(VideoResizer main.cpp)
+target_link_libraries(VideoResizer ${OpenCV_LIBS})

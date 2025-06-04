@@ -110,13 +110,12 @@ int main() {
 
     std::vector<cv::Mat> frames;
 
-    // Load all frames into memory
     cv::Mat frame;
     while (cap.read(frame)) {
         frames.push_back(frame.clone());
     }
 
-    // Parallel frame-level seam carving
+    // parallel frame seam carving
     #pragma omp parallel for
     for (int i = 0; i < frames.size(); ++i) {
         seamCarveFrame(frames[i], targetWidth, targetHeight);
